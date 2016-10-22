@@ -1,0 +1,109 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             test, DATA, READWRITE
+    2 00000000                 export           inputdata
+    3 00000000                 export           filtereddata
+    4 00000000                 export           length
+    5 00000000                 export           kalmanstate
+    6 00000000         
+    7 00000000 3F800000 
+              40800000 
+              40E00000 
+              41200000 
+              41400000 
+              41C00000 
+              41F00000 inputdata
+                               DCFS             1.0, 4.0, 7.0, 10.0, 12.0, 24.0
+, 30.0
+    8 0000001C AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB AB 
+              AB AB    filtereddata
+                               FILL             50, 0xAB
+    9 0000004E 07      length  DCB              7
+   10 0000004F 00 00000000 
+              00000000 
+              3DCCCCCD 
+              3DCCCCCD 
+              3DCCCCCD 
+              3F4CCCCD 
+              3F99999A kalmanstate
+                               DCFS             0.0, 0.0, 0.1, 0.1, 0.1, 0.8, 1
+.2 
+                                                            ;INITIAL STATES: x,
+                                                             k, q, r, p, f, h .
+                                                            ..
+   11 0000006C         
+   12 0000006C                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\setupkalman.d -o.\objects\setupkalman.o -I"F:\Micro P
+\Lab1_STM32F4Cube_Base_project\RTE" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4
+\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Dev
+ice\ST\STM32F4xx\Include --predefine="__UVISION_VERSION SETA 515" --predefine="
+_RTE_ SETA 1" --predefine="STM32F407xx SETA 1" --list=.\listings\setupkalman.ls
+t setupkalman.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+filtereddata 0000001C
+
+Symbol: filtereddata
+   Definitions
+      At line 8 in file setupkalman.s
+   Uses
+      At line 3 in file setupkalman.s
+Comment: filtereddata used once
+inputdata 00000000
+
+Symbol: inputdata
+   Definitions
+      At line 7 in file setupkalman.s
+   Uses
+      At line 2 in file setupkalman.s
+Comment: inputdata used once
+kalmanstate 00000050
+
+Symbol: kalmanstate
+   Definitions
+      At line 10 in file setupkalman.s
+   Uses
+      At line 5 in file setupkalman.s
+Comment: kalmanstate used once
+length 0000004E
+
+Symbol: length
+   Definitions
+      At line 9 in file setupkalman.s
+   Uses
+      At line 4 in file setupkalman.s
+Comment: length used once
+test 00000000
+
+Symbol: test
+   Definitions
+      At line 1 in file setupkalman.s
+   Uses
+      None
+Comment: test unused
+5 symbols
+338 symbols in table
